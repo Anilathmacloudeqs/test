@@ -1,0 +1,32 @@
+python --version
+
+python -m pip install --upgrade pip
+
+pip install snowflake-connector-python
+
+pip install snowflake-sqlalchemy
+
+---------------------------------------------------------
+
+import snowflake.connector
+
+conn = snowflake.connector.connect(
+    account="kha80474",
+    user="anilathma@cloudeqs.com",
+    password='Qwepoialm!2',
+    role='RL_INT_TRG_RW',
+    warehouse="COMPUTE_WH",
+    database="INTERNAL_TRAINING",
+    schema="DEMO"
+)
+
+cur = conn.cursor()
+
+cur.execute('Select * from')
+results = cur.fetchall()
+
+for row in results:
+    print(row)
+
+cur.close()
+conn.close()
